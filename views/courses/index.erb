@@ -1,0 +1,13 @@
+<h1>Available Courses</h1><br>
+<br>
+
+<form action="/courses/new" method="post">
+  <input type="text" id="course_name" name="[course]course_name" value="" placeholder="Add Course"/>
+  <input type="submit">
+</form>
+
+<ul>
+	<% @available_courses.each do |course_open| %>
+	<li><%= course_open.course_name %> - <a href="/courses/<%= course_open.id %>/edit">Update</a></li>
+	<% end %>
+</ul>
