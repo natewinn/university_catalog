@@ -1,1 +1,19 @@
-Edit Page
+<%= @professor_open.name %> | 
+<%= @professor_open.email_address %> | 
+<%= @professor_open.office_location %>
+
+<!-- ENTRY UPDATE FORM -->
+<form action="/professors/<%= @professor_open.id %>" method="post">
+  <input type="text" id="name" name="professor[name]" placeholder="Name" />
+  <input type="text" id="email_address" name="professor[email_address]" placeholder="Email Address" />
+  <input type="text" id="office_location" name="professor[office_location]" placeholder="Office Location" />
+  <input type="submit" name="_method" value="put">
+</form>
+
+<!-- ENTRY DELETE FORM -->
+<form action="/professors/<%= @professor_open.id %>" method="post">
+	<input type="hidden" name="_method" value="delete"/>
+	<input type="submit" value="Delete"/>
+</form>
+
+<a href="/professors">Return to professor list</a>

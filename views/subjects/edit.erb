@@ -1,1 +1,15 @@
-Edit Page
+<%= @subject_open.subject_name %>
+
+<!-- ENTRY UPDATE FORM -->
+<form action="/subjects/<%= @subject_open.id %>" method="post">
+  <input type="text" id="subject_name" name="subject[subject_name]" placeholder="update info" />
+  <input type="submit" name="_method" value="put">
+</form>
+
+<!-- ENTRY DELETE FORM -->
+<form action="/subjects/<%= @subject_open.id %>" method="post">
+	<input type="hidden" name="_method" value="delete"/>
+	<input type="submit" value="Delete"/>
+</form>
+
+<a href="/subjects">Return to subject list</a>

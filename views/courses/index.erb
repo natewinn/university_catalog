@@ -2,12 +2,32 @@
 <br>
 
 <form action="/courses/new" method="post">
-  <input type="text" id="course_name" name="[course]course_name" value="" placeholder="Add Course"/>
+  <input type="text" id="course_name" name="[course]course_name" value="" placeholder="Course Name"/>
+  <input type="text" id="course_number" name="[course]course_number" value="" placeholder="Course Number"/>
+  <input type="text" id="start_time" name="[course]start_time" value="" placeholder="Start Time"/>
+  
+	<select name="professor">
+		<% @available_professors.each do |professor_open| %>
+			<option value="<%= professor_open.id %>"><%= professor_open.name %></option>
+		<% end %>
+	</select>
+
+	<select name="subject">
+		<% @available_subjects.each do |subject_open| %>
+			<option value="<%= subject_open.id %>"><%= subject_open.subject_name %></option>
+		<% end %>
+	</select>
+
   <input type="submit">
 </form>
 
 <ul>
 	<% @available_courses.each do |course_open| %>
-	<li><%= course_open.course_name %> - <a href="/courses/<%= course_open.id %>/edit">Update</a></li>
+	<li><%= course_open.course_name %> | 
+			<%= course_open.course_number %> | 
+			<%= course_open.start_time %> | 
+			<%= course_open.professor_id %> | 
+			<%= course_open.subject_id %> | 
+			<a href="/courses/<%= course_open.id %>/edit">Update</a></li>
 	<% end %>
 </ul>

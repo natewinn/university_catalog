@@ -1,1 +1,14 @@
-Index Page
+<h1>Available Subjects</h1><br>
+<br>
+
+<form action="/subjects/new" method="post">
+  <input type="text" id="subject_name" name="[subject]subject_name" value="" placeholder="Add Subject"/>
+  <input type="submit">
+</form>
+
+<ul>
+	<% @available_subjects.each do |subject_open| %>
+	<li><%= subject_open.subject_name %> | 
+			<a href="/subjects/<%= subject_open.id %>/edit">Update</a></li>
+	<% end %>
+</ul>

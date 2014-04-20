@@ -1,1 +1,18 @@
-Index Page
+<h1>Professors</h1><br>
+<br>
+
+<form action="/professors/new" method="post">
+  <input type="text" id="name" name="[professor]name" value="" placeholder="Professor"/>
+  <input type="text" id="email_address" name="[professor]email_address" value="" placeholder="Email Address"/>
+	<input type="text" id="office_location" name="[professor]office_location" value="" placeholder="Office Location"/>
+  <input type="submit">
+</form>
+
+<ul>
+	<% @available_professors.each do |professor_open| %>
+	<li><%= professor_open.name %> | 
+			<%= professor_open.email_address %> | 
+			<%= professor_open.office_location %> | 
+			<a href="/professors/<%= professor_open.id %>/edit">Update</a></li>
+	<% end %>
+</ul>
