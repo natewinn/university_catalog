@@ -2,16 +2,16 @@
 <br>
 
 <!-- Form to add new course -->
-<form action="/courses/new" method="post">
-  <input type="text" id="course_name" name="[course]course_name" value="" placeholder="Course Name"/>
-  <input type="text" id="course_number" name="[course]course_number" value="" placeholder="Course Number"/>
-  <input type="text" id="start_time" name="[course]start_time" value="" placeholder="Start Time"/>
-	<select name="professor">
+<form action="/courses" method="post">
+  <input type="text" id="course_name" name="course[course_name]" value="" placeholder="Course Name"/>
+  <input type="text" id="course_number" name="course[course_number]" value="" placeholder="Course Number"/>
+  <input type="text" id="start_time" name="course[start_time]" value="" placeholder="Start Time"/>
+	<select name="course[professor_id]">
 		<% @available_professors.each do |professor_open| %>
 			<option value="<%= professor_open.id %>"><%= professor_open.name %></option>
 		<% end %>
 	</select>
-	<select name="subject">
+	<select name="course[professor_id]">
 		<% @available_subjects.each do |subject_open| %>
 			<option value="<%= subject_open.id %>"><%= subject_open.subject_name %></option>
 		<% end %>
