@@ -1,17 +1,14 @@
 <%= @course_open.course_name %> | 
 <%= @course_open.course_number %> | 
 <%= @course_open.start_time %> | 
-<%= @course_open.professor_id %> | 
-<%= @course_open.subject_id %>
+<%= @professor_open.name %> | 
+<%= @subject_open.subject_name %>
 
 <!-- ENTRY UPDATE FORM -->
 <form action="/courses/<%= @course_open.id %>" method="post">
   <input type="text" id="course_name" name="course[course_name]" placeholder="update course" />
   <input type="text" id="course_number" name="course[course_number]" placeholder="update number" />
 	<input type="text" id="start_time" name="course[start_time]" placeholder="update time" />
-	<input type="text" id="professor_id" name="course[professor_id]" placeholder="select professor" />  
-	<input type="text" id="subject_id" name="course[subject_id]" placeholder="select course" />
-  <input type="submit" name="_method" value="put">
 </form>
 
 <!-- ENTRY DELETE FORM -->

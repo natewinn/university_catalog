@@ -51,15 +51,14 @@ end
 post "/courses/new" do
 	puts params[:course]
 	course = Course.new(params[:course])
-
-	@name = Professor.find(params[:professor])
-	@professor_id_number = @name.id
-	@course.professor_id = @professor_id_number
 	
-	@subject_name = Subject.find(params[:subject])
-	@subject_id_number = @subject_name.id
-	@course.subject_id = @subject_id_number
-
+	name = Professor.find(params[:professor])
+	professor_id_number = name.id
+	course.professor_id = professor_id_number
+	
+	subject_name = Subject.find(params[:subject])
+	subject_id_number = subject_name.id
+	course.subject_id = subject_id_number
 	if course.save
 		redirect "/courses"
 	end
@@ -86,6 +85,8 @@ end
 
 get "/courses/:id/edit" do
 	@course_open = Course.find(params[:id])
+	@professor_open = Professor.find(@course_open.professor_id)
+	@subject_open = Subject.find(@course_open.subject_id)
 	erb :"/courses/edit"
 end
 
